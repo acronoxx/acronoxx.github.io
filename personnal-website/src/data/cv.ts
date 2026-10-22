@@ -66,21 +66,6 @@ export const experience: Entry[] = [
     tags: ['Teamwork', 'Autonomy', 'Customer care'],
   },
   {
-    period: '2025 — 2026',
-    title: 'Robotics club member',
-    org: 'IMT Atlantique',
-    place: 'Brest',
-    points: ['Built basic electronic systems and designed small circuits.'],
-    tags: ['Electronics'],
-  },
-  {
-    period: '2026 — Present',
-    title: 'Chess club member',
-    org: 'IMT Atlantique',
-    place: 'Brest',
-    points: ['About one session a week, matches between members. 1100 Elo, still fighting the clock.'],
-  },
-  {
     period: '2019 · 1 week',
     title: 'Observation internship',
     org: 'Pharmacie Timol',
@@ -243,6 +228,10 @@ export const skills = [
 export const offHours = [
   { label: 'Gym', title: 'Push · Pull · Legs', text: 'Five sessions a week since 2025, no skipping.' },
   { label: 'Games', title: 'Two extremes', text: 'The Finals · Animal Crossing · Minecraft redstone' },
-  { label: 'Chess', title: '1100 Elo', text: 'Weekly club nights. Time management is the real opponent.' },
+  {
+    label: 'Clubs',
+    title: 'Chess & robotics',
+    text: 'About one chess session a week at IMT Atlantique, matches between members: 1100 Elo, still fighting the clock. Small circuits with the robotics club in 2025 — 2026.',
+  },
   { label: 'Learning', title: 'New languages', text: 'Go, Elixir and TypeScript on Exercism, tracked in learning-journey.' },
 ]
