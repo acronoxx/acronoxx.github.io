@@ -17,7 +17,7 @@ export const profile = {
 
 export const links = [
   { label: 'GitHub', href: 'https://github.com/acronoxx', handle: '@acronoxx' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/alexis-baret-4786a3374', handle: 'alexis-baret' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/alexisbaret', handle: 'alexisbaret' },
   { label: 'Email', href: `mailto:${profile.email}`, handle: profile.email },
   { label: 'Ko-fi', href: 'https://ko-fi.com/acronox', handle: 'acronox' },
 ]
@@ -114,11 +114,18 @@ export const education: Entry[] = [
     tags: ['OCaml', 'C', 'SQL'],
   },
   {
-    period: '2020 — 2023',
+    period: '2022 — 2023',
     title: 'Baccalauréat — Maths & Physics-Chemistry',
     org: 'Lycée Sarda Garriga',
     place: 'Saint-André, Réunion',
-    points: ['Highest honours (mention Très bien), 17.42/20, with advanced maths option.'],
+    points: ['Final year. Highest honours (mention Très bien), 17.42/20, with advanced maths option.'],
+  },
+  {
+    period: '2020 — 2022',
+    title: 'Seconde & Première — General track',
+    org: 'Lycée Mahatma Gandhi',
+    place: 'Saint-André, Réunion',
+    points: ['First two years of high school, before moving to Lycée Sarda Garriga for the final year.'],
   },
 ]
 
@@ -142,40 +149,54 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: 'Smart grid manager',
-    period: 'May 2026',
-    kind: 'Back-end · Team of 3',
+    name: 'Generative banking UI',
+    period: 'Oct 2026 — Present',
+    kind: 'AI agents · Team of 6',
     summary:
-      'Web app to run and monitor smart electrical grids across a city. I did all the development: a full CRUD API in Java with a model / service / server layered architecture.',
-    result: '15 routes, all covered by automated tests · graded A',
-    stack: ['Java', 'SQL', 'JavaScript', 'Python'],
-  },
-  {
-    name: 'GitLab penetration test',
-    period: 'Dec 2025',
-    kind: 'Cybersecurity · Wavegame by Wavestone',
-    summary:
-      'Security audit of an up-to-date GitLab instance and its CI/CD pipelines: exposed CI token, SSRF, poisoned pipeline, root code execution on runners. Wrapped up in a prioritised report.',
-    result: '13 vulnerabilities found, 7 of high severity',
-    stack: ['GitLab CI/CD', 'GitLab API', 'Pentest'],
+      'AI-native banking prototype whose interface is generated on the fly by LLM agents: spending analysis, account summaries, simulated transfers and advisor contact, all from natural-language requests on synthetic data.',
+    result: 'Work in progress · architecture and agent design',
+    stack: ['Python', 'FastAPI', 'React', 'PostgreSQL'],
+    href: 'https://github.com/acronoxx/generative-banking-ui',
   },
   {
     name: 'Text-to-speech web service',
     period: 'Feb — May 2026',
     kind: 'Web service · Team of 5',
     summary:
-      'API giving access to Acapela speech synthesis, with an admin interface for user tokens and credits. I owned the architecture, user management, password hashing and role-based routes.',
+      'REST API around the Acapela speech engine: JWT auth, credit-based API keys, audio caching and admin-approved requests. I owned the architecture, user management, password hashing and role-based routes.',
     result: 'Working prototype delivered in 4 months',
-    stack: ['Java', 'Vert.x', 'JavaScript'],
+    stack: ['Java', 'Vert.x', 'PostgreSQL', 'JPA'],
+    href: 'https://github.com/acronoxx/acapela-webservice',
+  },
+  {
+    name: 'Desk companion',
+    period: 'Oct 2026 — Present',
+    kind: 'IoT · Side project',
+    summary:
+      'A small object on the desk that brings task reminders off the phone: ESP32 firmware for the device, a React Native mobile app to manage tasks, and a Supabase backend in between.',
+    result: 'Work in progress · mobile app first',
+    stack: ['ESP32', 'React Native', 'Expo', 'TypeScript', 'Supabase'],
+    href: 'https://github.com/acronoxx/desk-companion',
+  },
+  {
+    name: 'Smart grid manager',
+    period: 'May 2026',
+    kind: 'Back-end · Team of 3',
+    summary:
+      'REST backend to run and monitor city-scale smart grids: solar and wind producers, EV chargers and time-series measurements. I did all the development, with a model / service / server layered architecture.',
+    result: '15 routes, all covered by automated tests · graded A',
+    stack: ['Java', 'Vert.x', 'PostgreSQL', 'Docker', 'pytest'],
+    href: 'https://github.com/acronoxx/smart-grid',
   },
   {
     name: 'PyRat pathfinding',
     period: 'Sep — Dec 2025',
     kind: 'Algorithms · Solo',
     summary:
-      'Strategies for a rat collecting cheese in a maze, solo and 1 vs 1: Dijkstra, greedy, exhaustive search with backtracking, 2-opt route optimisation.',
+      'Strategies for a rat collecting cheese in a maze, a travelling salesman variant: greedy Dijkstra players, exhaustive search with backtracking and 2-opt route optimisation, benchmarked and unit-tested.',
     result: '5+ algorithms designed and compared',
     stack: ['Python', 'Graphs'],
+    href: 'https://github.com/acronoxx/pyrat',
   },
   {
     name: 'Solar irradiance sensor',
@@ -187,15 +208,29 @@ export const projects: Project[] = [
     stack: ['Arduino', 'Electronics', '3D printing'],
   },
   {
-    name: 'Exposure correction (TIPE)',
-    period: '2023 — 2025',
-    kind: 'Image processing · Solo',
+    name: 'Vector drawing app',
+    period: 'Oct 2026',
+    kind: 'Interaction · Solo',
     summary:
-      'Algorithm that automatically fixes the exposure of landscape photos by searching for maximum luminous entropy. Presented at the 2025 entrance exams.',
-    result: 'About half the images come out better exposed',
-    stack: ['Python', 'Pillow'],
+      'Canvas drawing app: rectangles, ellipses, lines and free-hand paths that can be selected, moved, resized with 8 handles, recolored, cloned and reordered in depth. One class per interaction mode.',
+    result: 'All lab features plus the depth and resize bonuses',
+    stack: ['React', 'TypeScript', 'Canvas'],
+    href: 'https://github.com/acronoxx/drawing-app',
+  },
+  {
+    name: 'CV maker',
+    period: 'Oct 2026 — Present',
+    kind: 'Tooling · Side project',
+    summary:
+      'CV-as-code engine: write the resume once in YAML and generate country-adapted versions in your own design, exported as PDF or Figma-editable SVG.',
+    result: 'Work in progress',
+    stack: ['YAML', 'PDF', 'SVG'],
+    href: 'https://github.com/acronoxx/cv-maker',
   },
 ]
+
+// Projects shown before the "show all" toggle
+export const featuredProjects = 6
 
 // Technical index, most-liked first (same order as the GitHub profile)
 export const skills = [

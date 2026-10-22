@@ -1,12 +1,18 @@
+import { useState } from 'react'
 import { SectionHeader } from '../components/SectionHeader'
-import { projects } from '../data/cv'
+import { featuredProjects, projects } from '../data/cv'
 
 export function Projects() {
+  const [showAll, setShowAll] = useState(false)
+  const hiddenCount = projects.length - featuredProjects
+
   return (
     <section id="projects" className="section">
-      <SectionHeader num="04" name="Projects" title="Selected Work" aside={`${projects.length} projects / school & challenges`} />
+      <SectionHeader num="04" name="Projects" title="Selected Work" aside={`${projects.length} projects / school & side projects`} />
       <div className="projects">
         {projects.map((project, i) => {
+          // extra cards stay mounted so the scroll reveal still catches them once shown
+          const hidden = !showAll && i >= featuredProjects
           const body = (
             <>
               <div className="project__top mono tiny muted">
@@ -41,17 +47,31 @@ export function Projects() {
               href={project.href}
               target="_blank"
               rel="noreferrer"
+              hidden={hidden}
               data-reveal
             >
               {body}
             </a>
           ) : (
-            <article key={project.name} className="project" data-reveal>
+            <article key={project.name} className="project" hidden={hidden} data-reveal>
               {body}
             </article>
           )
         })}
       </div>
+      {hiddenCount > 0 && (
+        <button
+          type="button"
+          className="button mono projects__toggle"
+          aria-expanded={showAll}
+          onClick={() => setShowAll((value) => !value)}
+        >
+          {showAll ? 'Show less' : `Show all projects (+${hiddenCount})`}
+          <span className="arrow" aria-hidden="true">
+            {showAll ? '↑' : '↓'}
+          </span>
+        </button>
+      )}
     </section>
   )
 }

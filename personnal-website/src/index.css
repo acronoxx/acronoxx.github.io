@@ -678,6 +678,19 @@ a {
   margin-top: auto;
   padding-top: 8px;
 }
+.project[hidden] {
+  display: none;
+}
+.projects__toggle {
+  display: block;
+  margin: 28px auto 0;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+}
+.projects__toggle .arrow {
+  margin-left: 10px;
+}
 
 .arrow {
   display: inline-block;
@@ -989,8 +1002,12 @@ a {
   .hero__actions,
   .hero__dot,
   .offhours,
-  .about__leaf {
+  .about__leaf,
+  .projects__toggle {
     display: none !important;
+  }
+  .project[hidden] {
+    display: flex;
   }
   body {
     background: #fff;
